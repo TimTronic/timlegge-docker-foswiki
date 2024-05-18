@@ -1,3 +1,5 @@
+Fork to make %IMAGE% plugin work, but it just wont.
+
 # docker-foswiki, with Solr and NatSkin, multi-instances and Traefik ready
 
 ## Table of Contents
