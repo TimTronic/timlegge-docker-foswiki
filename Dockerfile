@@ -17,6 +17,7 @@ RUN rm -rf /var/cache/apk/* && \
     apk add ca-certificates imagemagick mailcap musl nginx openssl tzdata bash \
         db htmldoc make gcc db-dev musl-dev rcs \
         grep unzip wget zip perl perl-algorithm-diff perl-algorithm-diff-xs \
+	make gcc perl-utils libc-dev imagemagick-dev perl-dev \
         perl-apache-logformat-compiler perl-archive-zip perl-authen-sasl \
         perl-authcas perl-cache-cache perl-cgi perl-cgi-session \
         perl-class-accessor perl-convert-pem perl-crypt-eksblowfish \
@@ -142,6 +143,8 @@ RUN rm -rf /var/cache/apk/* && \
     mkdir -p /run/nginx && \
     mkdir -p /etc/nginx/http.d && \
     chown -R nginx:nginx /var/www/foswiki
+
+RUN cpan install -T Image::Magick
 
 COPY nginx.default.conf /etc/nginx/http.d/default.conf
 COPY docker-entrypoint.sh docker-entrypoint.sh
